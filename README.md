@@ -26,6 +26,8 @@
 
 ## Terminology
 
+test
+
 ### Rule declaration
 
 A “rule declaration” is the name given to a selector (or a group of selectors) with an accompanying group of properties. Here's an example:
