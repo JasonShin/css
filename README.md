@@ -2,6 +2,8 @@
 
 *A mostly reasonable approach to CSS and Sass*
 
+*This styleguide will be maintained in https://github.com/JasonShin/css for now.*
+
 ## Table of Contents
 
   1. [Terminology](#terminology)
@@ -64,6 +66,84 @@ Finally, properties are what give the selected elements of a rule declaration th
 ```
 
 ## CSS
+
+### Layout
+Layout will be implemented using [flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/). [Flexbox is a cross-browser (including IE11)](http://caniuse.com/#feat=flexbox) compatible layout solution that is easy to learn and use. 
+
+```html
+<div class='container'> // you can apply flexbox here
+  <div class="row">  // you can apply flexbox here too
+  </div>
+</div>
+```
+
+Above styling was inspired from [Milligram.io](http://milligram.io/grids.html). (Still need more thinking about this)
+
+### Paddings and Margins
+
+Paddings and Margins will be organised using ``` scale * baseSpacing ``` approach. Advantages of using it include, easier communication and margins and paddings consistency through the apps. 
+
+margins implementation:
+```scss
+@mixin margin-spacing( $spacing ) {
+  @for $i from 1 to 11 {
+    // Margin
+    %mg-#{$i}x { margin: $spacing * $i; }
+
+    %mg-top-#{$i}x,
+    %mg-vertical-#{$i}x { margin-top: $spacing * $i; }
+
+    %mg-bottom-#{$i}x,
+    %mg-vertical-#{$i}x { margin-bottom: $spacing * $i; }
+
+    %mg-left-#{$i}x,
+    %mg-horizontal-#{$i}x { margin-left: $spacing * $i; }
+
+    %mg-right-#{$i}x,
+    %mg-horizontal-#{$i}x { margin-right: $spacing * $i; }
+  }
+}
+
+$spacing: 5px;
+@include margin-spacing($spacing);
+```
+How to use
+```
+<div class="mg-1x">
+    <span class="mg-top-2x"></span>
+</div>
+```
+
+paddings implementation:
+```scss
+@mixin padding-spacing( $spacing ) {
+  @for $i from 1 to 11 {
+    // Padding
+    %pd-#{$i}x { padding: $spacing * $i; }
+
+    %pd-top-#{$i}x,
+    %pd-vertical-#{$i}x { padding-top: $spacing * $i; }
+
+    %pd-bottom-#{$i}x,
+    %pd-vertical-#{$i}x{ padding-bottom: $spacing * $i; }
+
+    %pd-left-#{$i}x,
+    %pd-horizontal-#{$i}x { padding-left: $spacing * $i; }
+
+    %pd-right-#{$i}x,
+    %pd-horizontal-#{$i}x{ padding-right: $spacing * $i; }
+  }
+}
+
+$spacing: 5px;
+@include padding-spacing($spacing);
+```
+how to use 
+```
+<div class="pd-1x">
+    <span class="pd-top-2x"></span>
+</div>
+```
 
 ### Formatting
 
