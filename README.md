@@ -81,7 +81,7 @@ Above styling was inspired from [Milligram.io](http://milligram.io/grids.html). 
 
 ### Paddings and Margins
 
-Paddings and Margins will be organised using ``` scale * baseSpacing ``` approach. Advantages of using it include, easier communication and margins and paddings consistency through the apps. 
+Paddings and Margins will be organised using ``` scale * baseSpacing ``` approach. Advantages of using it include, easier communication and margins and paddings consistency. 
 
 margins implementation:
 ```scss
